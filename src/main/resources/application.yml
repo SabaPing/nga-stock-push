@@ -15,7 +15,7 @@ nga:
   api:
     url: http://ngabbs.com/app_api.php?__lib=post&__act=list
   dingding:
-    url: 
+    url:
   author:
     - uid: 27178316
       name: gxgujnk1993

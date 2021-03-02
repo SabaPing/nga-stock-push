@@ -3,28 +3,27 @@ package pers.ljy.nga.stock.constant;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.stream.Collectors;
-
 import javax.annotation.PostConstruct;
-
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Import;
 import org.springframework.stereotype.Component;
-
 import pers.ljy.nga.stock.main.Properties;
 import pers.ljy.nga.stock.main.Properties.AuthorProperties;
 
 @Component
 @Import(Properties.class)
 public class Author {
-	@Autowired
-	Properties props;
-	public static Map<Integer, String> authors = new HashMap<>();
 
-	@PostConstruct
-	public void init() {
-		authors = props.getAuthor().stream()
-				.collect(Collectors.toMap(AuthorProperties::getUid, AuthorProperties::getName, (x, y) -> y));
-	}
+  public static Map<Integer, String> authors = new HashMap<>();
+  @Autowired
+  Properties props;
+
+  @PostConstruct
+  public void init() {
+    authors = props.getAuthor().stream()
+        .collect(
+            Collectors.toMap(AuthorProperties::getUid, AuthorProperties::getName, (x, y) -> y));
+  }
 //	static {
 //		authors.put(27178316, "gxgujnk1993");
 //		authors.put(38666451, "泰莫拉尔");
